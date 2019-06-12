@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% block head %}
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>{% block title %}{% endblock %} - Karannah</title>
+
+        <link rel="stylesheet" type="text/css" href="{{ settings.BOOTSTRAP }}css/bootstrap.css" media="all">
+        <link rel="stylesheet" type="text/css" href="{{ settings.BOOTSTRAP }}css/bootstrap-grid.css" media="all">
+        <link rel="stylesheet" type="text/css" href="{{ settings.CSS }}style.css" media="all">
+        <link rel="stylesheet" type="text/css" href="{{ settings.CSS }}fixed.css" media="all">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+        <script src="{{ settings.BOOTSTRAP }}js/bootstrap.js" type="text/javascript"></script>
+        <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    {% endblock %}
+</head>
+<body id="{% block body_id %}{% endblock %}">
+<div id="header" class="navbar navbar-default navbar-fixed-top new-header-mobile" role="navigation">
+
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+    <div class="container logoMenuBlock" itemscope itemtype="https://schema.org/Organization">
+        <meta itemprop="name" content="Iluminamos"/>
+        <div class="navbar-header">
+            <a class="navbar-brand" href="{{ settings.DOMAIN }}" itemprop="url">
+                <img itemprop="logo" alt="Iluminamos" title="Iluminamos"
+                     src="{{ settings.IMG }}logo.png" width=""/>
+                <span>Karannah</span>
+            </a>
+        </div>
+    </div>
+    <div class="container-fluid wide-content">
+        <nav role="navigation" class="main-menu-navigation" data-role="main-menu-navigation">
+
+            <a href="{{ settings.DOMAIN }}novedades" class="menu-item">
+                <span class="txt ext-uc">NOVEDADES</span>
+            </a>
+
+            <a href="{{ settings.DOMAIN }}promociones" class="menu-item"><span class="txt ext-uc">PROMOCIONES</span></a>
+
+            <a href="{{ settings.DOMAIN }}categoria/1" class="menu-item"><span class="txt ext-uc">PULSERAS</span></a>
+
+            <a href="{{ settings.DOMAIN }}categoria/2" class="menu-item"><span class="txt ext-uc">DIJES</span></a>
+
+            <a href="{{ settings.DOMAIN }}categoria/3" class="menu-item"><span class="txt ext-uc">ANILLOS</span></a>
+
+            <a href="{{ settings.DOMAIN }}categoria/4" class="menu-item"><span class="txt ext-uc">BRAZALETES</span></a>
+
+            <a href="{{ settings.DOMAIN }}categoria/5" class="menu-item"><span class="txt ext-uc">JUEGOS</span></a>
+
+            <a href="{{ settings.DOMAIN }}videos" class="menu-item"><span class="txt ext-uc">VIDEOS</span></a>
+
+            <a href="#" class="menu-item"><span class="txt ext-uc">CONOCE MÁS</span></a>
+
+            <a href="#" class="menu-item"><span class="txt ext-uc">COMPRA EN LÍNEA</span></a>
+
+            <a href="{{ settings.DOMAIN }}quienes-somos" class="menu-item"><span
+                        class="txt ext-uc">¿QUIÉNES SOMOS?</span></a>
+        </nav>
+
+    </div>
+</div>
+{% block content %}{% endblock %}
+
+<div class="footer">
+    <div class="container-fluid contentFooter">
+        <div class="container mb-4">
+            <div class="row">
+                <div class="col-lg-4 text-center">
+                    <a href="{{ settings.DOMAIN }}">Inicio</a>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <a href="#" target="">Términos de Uso</a>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <a href="#">Contacto</a>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding-top: 10px;">
+                    <legend>
+                        <span class="glyphicon glyphicon-globe"
+                              style="font-size:65%; padding-right:10px;"></span>Dirección
+                    </legend>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    <form>
+                        <address>
+                            test dirección #345, C.P. 4564987<br>
+                            Puebla, México
+                        </address>
+                        <address>
+                            <strong>E-mail</strong><br>
+                            <a href="mailto:#">test@email.com</a>
+                        </address>
+                    </form>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    <form>
+                        <address>
+                            <abbr title="Phone">
+                                Teléfono:</abbr><br>
+                            01 (222) 884 4549<br>
+                        </address>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,204 @@
+#header {
+    padding: 0px;
+}
+
+.navbar-header {
+    margin: 0 auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.main-menu {
+    border-top: 1px solid #e5e5e5;
+    background: #fff;
+    float: none;
+    width: auto;
+    position: initial;
+}
+
+#home .container {
+    padding-top: 0px;
+    float: none;
+    clear: both;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.main-menu-navigation {
+    /*width: 1120px;*/
+    text-align: center;
+    height: 49px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    margin: 0 auto;
+}
+
+a.menu-item {
+    cursor: pointer;
+    color: #6c757d;
+}
+
+a.menu-item:hover {
+    cursor: pointer;
+    color: #2a2730;
+}
+
+.main-menu-navigation .menu-item {
+    height: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    font-size: 12px;
+    text-decoration: none;
+    cursor: pointer;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    position: relative;
+    z-index: 0;
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+.menu-item .txt {
+    text-shadow: 1px 0 0 transparent;
+    transition: text-shadow .15s ease-in-out;
+}
+
+.item-highlights-new {
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+#product .container {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 35%;
+}
+
+.carousel {
+    width: 100%;
+}
+
+.slide-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.slide-box .col {
+    margin-left: 5px;
+    margin-right: 5px;
+    text-align: center;
+    box-shadow: 1px 1px 1px 0px darkgray;
+    padding: 4px;
+    margin-bottom: 20px;
+    line-height: 1.42857143;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    /*border-radius: 4px;*/
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+.slide-box .col img {
+    width: 260px;
+    height: 260px;
+}
+
+.carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+}
+
+.carousel-control-next-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+}
+
+.carousel-control-prev, .carousel-control-next {
+    width: 3%;
+}
+
+.contentFooter a {
+    color: #000;
+}
+
+legend {
+    border-bottom: 1px solid;
+    font-size: 1rem;
+    color: #000;
+}
+
+address {
+    font-size: .75rem;
+    color: #000;
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .slide-box img {
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .slide-box img {
+        -ms-flex: 0 0 33.3333%;
+        flex: 0 0 33.3333%;
+        max-width: 33.3333%;
+    }
+}
+
+@media (min-width: 992px) {
+    .slide-box img {
+        -ms-flex: 0 0 25%;
+        flex: 0 0 25%;
+        /*max-width: 25%;*/
+        width: 260px;
+        height: 260px;
+    }
+}
+
+.carousel-caption {
+    /*background-color: rgba(0, 0, 0, 0.5);*/
+    position: relative;
+    left: 0%;
+    right: 0%;
+    padding-bottom: 2px;
+    /*padding: 20px;*/
+    border-radius: .5rem;
+    font-size: 12px;
+}
+
+@media (min-width: 1200px) {
+    #product .container {
+        width: 1110px !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    #product .container {
+        width: 1110px !important;
+    }
+}
