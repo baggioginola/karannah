@@ -1,0 +1,35 @@
+{% extends "layout/master.twig" %}
+{% block title %}Archivos{% endblock %}
+{% block head %}
+    {{ parent() }}
+    <link href="{{ settings.FILEINPUT }}css/fileinput.css" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+{% endblock %}
+
+{% block content %}
+    <h2 class="sub-header">Importar Productos</h2>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <form class="form-horizontal" role="form" id="form_global" data-toggle="validator">
+                <div class="form-group">
+                    <label for="ejemplo_email_3" class="col-lg-2 control-label">Archivo Excel</label>
+                    <div class="col-lg-10">
+                        <input id="id_files" name="files[]" multiple type="file" class="file-loading"
+                               accept="image/*">
+                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+{% block footer %}
+    {{ parent() }}
+    <script src="{{ settings.JS }}jquery-ui.js"></script>
+    <script type="text/javascript" src="{{ settings.JS }}custom/files.js"></script>
+    <script type="text/javascript" src="{{ settings.FILEINPUT }}js/fileinput.js"></script>
+    <script type="text/javascript" src="{{ settings.FILEINPUT }}js/plugins/sortable.min.js"></script>
+    <script type="text/javascript" src="{{ settings.FILEINPUT }}js/plugins/purify.min.js"></script>
+    <script type="text/javascript" src="{{ settings.FILEINPUT }}js/locales/es.js"></script>
+    <script type="text/javascript" src="{{ settings.FILEINPUT }}js/plugins/canvas-to-blob.js"></script>
+{% endblock %}

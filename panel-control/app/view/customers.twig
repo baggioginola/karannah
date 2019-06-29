@@ -1,0 +1,88 @@
+{% extends "layout/master.twig" %}
+{% block title %}Clientes{% endblock %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+{% block content %}
+    <h2 class="sub-header">Clientes</h2>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <form class="form-horizontal" role="form" id="form_global" data-toggle="validator">
+                <div class="form-group has-feedback">
+                    <label for="id_nombre" class="col-lg-2 control-label">Nombre:</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="id_nombre" placeholder="Nombre" name="nombre" disabled>
+                    </div>
+                </div>
+                <div class="form-group has-feedback">
+                    <label for="id_nombre" class="col-lg-2 control-label">Apellidos:</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="id_nombre" placeholder="Apellidos" name="apellidos" disabled>
+                    </div>
+                </div>
+                <div class="form-group has-feedback">
+                    <label for="id_nombre" class="col-lg-2 control-label">E-mail:</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="id_nombre" placeholder="E-mail" name="e_mail" disabled>
+                    </div>
+                </div>
+                <div class="form-group has-feedback">
+                    <label for="id_nombre" class="col-lg-2 control-label">Estado:</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="id_nombre" placeholder="Estado" name="estado" disabled>
+                    </div>
+                </div>
+                <div class="form-group has-feedback">
+                    <label for="id_nombre" class="col-lg-2 control-label">Ciudad:</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="id_nombre" placeholder="Ciudad" name="ciudad" disabled>
+                    </div>
+                </div>
+                <div class="form-group has-feedback">
+                    <label for="id_nombre" class="col-lg-2 control-label">Dirección:</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="id_nombre" placeholder="Dirección" name="direccion" disabled>
+                    </div>
+                </div>
+                <div class="form-group has-feedback">
+                    <label for="id_nombre" class="col-lg-2 control-label">Código Postal:</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="id_nombre" placeholder="Código Postal" name="codigo_postal" disabled>
+                    </div>
+                </div>
+                <div class="form-group has-feedback">
+                    <label for="id_nombre" class="col-lg-2 control-label">Teléfono:</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="id_nombre" placeholder="Teléfono" name="telefono" disabled>
+                    </div>
+                </div>
+                <div class="form-group has-feedback">
+                    <label for="id_nombre" class="col-lg-2 control-label">Celular:</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="id_nombre" placeholder="Celular" name="celular" disabled>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <table id="datatable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                <thead>
+                <tr>
+                    <th>Nombre(s)</th>
+                    <th>Apellido(s)</th>
+                    <th>E-mail</th>
+                    <th>Teléfono</th>
+                    <th></th>
+
+                </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+{% block footer %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ settings.JS }}custom/customers.js"></script>
+{% endblock %}
