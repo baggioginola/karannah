@@ -61,10 +61,8 @@ a:active, a:active *, a:focus, a:focus * {
     color: #c4c4c0
 }
 
+/*
 @media (min-width: 0px) and (max-width: 767px) {
-    body {
-        /*margin-bottom: 200px;*/
-    }
 
     #header {
         padding-top: 0;
@@ -77,9 +75,6 @@ a:active, a:active *, a:focus, a:focus * {
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
-    body {
-        /*margin-bottom: 180px;*/
-    }
 
     #header {
         padding-top: 0;
@@ -92,9 +87,6 @@ a:active, a:active *, a:focus, a:focus * {
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
-    body {
-        /*margin-bottom: 310px*/
-    }
 
     #header {
         padding-top: 0;
@@ -115,9 +107,6 @@ a:active, a:active *, a:focus, a:focus * {
 }
 
 @media (min-width: 1200px) and (max-width:1599px) {
-    body {
-        /*margin-bottom: 150px*/
-    }
 
     .container {
         width: 1110px
@@ -159,7 +148,7 @@ a:active, a:active *, a:focus, a:focus * {
         box-shadow: 0 3px 3px 0 rgba(50, 50, 50, .2)
     }
 }
-
+*/
 .fixed-top {
     top: 0;
     bottom: auto
@@ -450,6 +439,7 @@ a:active, a:active *, a:focus, a:focus * {
     display: none
 }
 
+/*
 @media (min-width: 0px) and (max-width: 767px) {
     #search-block .search-close-button {
         display: block;
@@ -493,7 +483,7 @@ a:active, a:active *, a:focus, a:focus * {
         display: none;
     }
 }
-
+*/
 #search-block-v2 {
     background-color: #ddd
 }
@@ -5262,7 +5252,7 @@ h4.modal-title {
 .hvr-fade:active p, .hvr-fade:focus p, .hvr-fade:hover p {
     color: #FFF
 }
-
+/*
 @media (min-width: 0px) and (max-width: 767px) {
     .footer {
         position: relative;
@@ -5284,6 +5274,7 @@ h4.modal-title {
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
+
     .footer {
         position: relative;
         bottom: 0;
@@ -5302,7 +5293,7 @@ h4.modal-title {
         background: 0 0
     }
 }
-
+*/
 .footer .buttonUp {
     background-color: none;
     height: 60px
@@ -16847,6 +16838,7 @@ span.product-name {
     overflow: hidden;
 }
 
+/*
 span.product-name a {
     display: block;
     font-size: 16px;
@@ -16856,6 +16848,8 @@ span.product-name a {
     margin-top: 5px;
     text-transform: uppercase;
 }
+*/
+
 
 span.product-name a:hover {
     color: #2faf9d;
@@ -17371,10 +17365,11 @@ span.product-name a:hover {
 }
 
 
+/*
 .navbar-nav li{
     font-size: 15px;
 }
-
+*/
 .navbar-nav .open .dropdown-menu{
     margin-left: 30px;
 }
