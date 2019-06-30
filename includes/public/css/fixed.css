@@ -219,6 +219,78 @@ span.product-name a:hover {
     color: #000;
 }
 
+.video {
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+}
+#breadcrumb {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#breadcrumb ol {
+    list-style: none;
+    padding: 0
+}
+
+#breadcrumb li {
+    float: left;
+    margin: 0;
+    padding: 0 0 0 7px;
+    font-size: 14px;
+    font-weight: 400
+}
+
+#breadcrumb li a {
+    text-transform: uppercase;
+    color: #404447
+}
+
+#breadcrumb li a:hover {
+    color: #6c757d
+}
+
+#breadcrumb li .active-page {
+    text-transform: uppercase;
+    color: #6c757d;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.navbar-brand {
+    height: auto;
+    padding: 0 0 0 15px;
+    font-size: 45px;
+    font-weight: 400;
+}
+
+.cart {
+    float: right;
+    font-size: 10px;
+    padding-top: 2px;
+    margin-right: 10px;
+}
+
+.cart .cart_img {
+    float: left;
+}
+
+.cart .cart_link {
+    float: left;
+    margin-left: 10px;
+    padding-top: 10px;
+}
+
+.cart .cart_link a {
+    color: rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+}
+
+.cart .cart_link a:hover {
+    color: #000;
+}
+
 @media only screen and (max-width: 600px) {
     .slide-box img {
         max-width: 50%;
@@ -237,11 +309,15 @@ span.product-name a:hover {
     }
 
     .centered h1 {
-        font-size: .75rem;
+        font-size: 1rem;
     }
 
     .centered p {
-        font-size: .5rem;
+        display: none;
+    }
+
+    .centered h4 {
+        display: none;
     }
 
     h2 {
@@ -254,11 +330,7 @@ span.product-name a:hover {
 
 }
 
-.video {
-    width: 100%;
-    max-width: 480px;
-    height: auto;
-}
+
 
 @media only screen and (min-width: 600px) {
     .slide-box img {
@@ -278,11 +350,15 @@ span.product-name a:hover {
     }
 
     .centered h1 {
-        font-size: 1.0rem;
+        font-size: 1.5rem;
     }
 
     .centered p {
-        font-size: .5rem;
+        display: none;
+    }
+
+    .centered h4 {
+        display: none;
     }
 
     h2 {
@@ -293,6 +369,7 @@ span.product-name a:hover {
         font-size: 1rem;
     }
 }
+
 
 @media only screen and (min-width: 768px) {
     .slide-box img {
@@ -312,11 +389,15 @@ span.product-name a:hover {
     }
 
     .centered h1 {
-        font-size: 1.25rem;
+        font-size: 1.5rem;
     }
 
     .centered p {
-        font-size: .75rem;
+        display: none;
+    }
+
+    .centered h4 {
+        display: none;
     }
 
     h2 {
@@ -359,7 +440,12 @@ span.product-name a:hover {
     }
 
     .centered p {
+        display: block;
         font-size: .75rem;
+    }
+
+    .centered h4 {
+        display: block;
     }
 
     h2 {
@@ -375,10 +461,6 @@ span.product-name a:hover {
 
     .slide-box img {
         max-width: 50%;
-    }
-
-    #product .container {
-        width: 1110px !important;
     }
 
     .navbar-brand img {
@@ -406,7 +488,12 @@ span.product-name a:hover {
     }
 
     .centered p {
+        display: block;
         font-size: 1rem;
+    }
+
+    .centered h4 {
+        display: block;
     }
 
     h2 {
@@ -445,7 +532,12 @@ span.product-name a:hover {
     }
 
     .centered p {
+        display: block;
         font-size: 1rem;
+    }
+
+    .centered h4 {
+        display: block;
     }
 
     h2 {

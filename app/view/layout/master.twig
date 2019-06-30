@@ -20,14 +20,21 @@
 <body id="{% block body_id %}{% endblock %}">
 
 <div id="header" class="" role="navigation">
-    <div class="container-fluid logo-desktop">
+    <div class="container-fluid logo-desktop wide-content">
         <div class="row">
-            <div class="navbar-header">
+            <div class="col-lg-7 no-gutters text-right">
                 <a class="navbar-brand" href="{{ settings.DOMAIN }}" itemprop="url">
-                    <img itemprop="logo" alt="Iluminamos" title="Iluminamos"
+                    <img itemprop="logo" alt="Karannah" title="Karannah"
                          src="{{ settings.IMG }}logo.png" width=""/>
                     <span>Karannah</span>
                 </a>
+            </div>
+            <div class="col-lg-5 no-gutters">
+                <div class="cart">
+                    <div class="cart_img"><img src="{{ settings.IMG }}cart.png" width="28px"></div>
+                    <div class="cart_link"><a href="#">VACÍO </a>
+                        | BIENVENIDO: MARIO CUEVAS </div>
+                </div>
             </div>
         </div>
     </div>

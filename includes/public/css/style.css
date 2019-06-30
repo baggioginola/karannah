@@ -1857,7 +1857,7 @@ span.ui-helper-hidden-accessible {
         padding-top: 20px;
         width: 1170px
     }
-
+/*
     .navbar-brand {
         float: left;
         height: auto;
@@ -1865,7 +1865,7 @@ span.ui-helper-hidden-accessible {
         font-size: 45px;
         font-weight: 400;
     }
-
+*/
     .navbar-brand img {
         width: 120px;
     }
@@ -16174,6 +16174,7 @@ input[type=submit][disabled] {
     border-radius: 0
 }
 
+/*
 @media (min-width: 0px) and (max-width: 767px) {
     #breadcrumb {
         display: none
@@ -16263,7 +16264,7 @@ input[type=submit][disabled] {
         padding-top: 80px
     }
 }
-
+*/
 .import-products.text ol, .import-products.text p {
     margin: 0 0 15px
 }

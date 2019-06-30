@@ -4,43 +4,47 @@
 
 {% block head %}
     {{ parent() }}
+    <script src="{{ settings.JS }}custom/cart.js" type="text/javascript"></script>
 {% endblock %}
 {% block body_id %}product{% endblock %}
 {% block content %}
     <div class="container-fluid wide-content">
         <div id="section">
-            <div class="container no-gutters mx-auto">
+            <div class="container">
                 <div class="row no-gutters bg-white">
-                    <div class="container" id="breadcrumb">
-                        <ol>
-                            <li><a href="{{ settings.DOMAIN }}">Inicio</a></li>
-                            <li>&gt;</li>
-                            <li>
-                                <a href="{{ settings.DOMAIN }}categoria/1">Anillos</a>
-                            </li>
-                            <li>&gt;</li>
-                            <li><span class="active-page">Producto Prueba</span></li>
-                        </ol>
-                    </div>
-                    <div class="row w-75 mx-auto  mt-4 my-5">
-                        <div class="col-md-5 col-md-offset-0">
-                            <img class="img-responsive" src="{{ settings.IMG }}packshot.jpg"
-                                 id="bigPic"
-                                 alt="test"
-                                 title="test"/>
+                    <div class="row w-75 mx-auto">
+                        <div class="container" id="breadcrumb">
+                            <ol>
+                                <li><a href="{{ settings.DOMAIN }}">Inicio</a></li>
+                                <li>&gt;</li>
+                                <li>
+                                    <a href="{{ settings.DOMAIN }}categoria/1">Anillos</a>
+                                </li>
+                                <li>&gt;</li>
+                                <li><span class="active-page">Producto Prueba</span></li>
+                            </ol>
                         </div>
-                        <div class="col-md-7" style="text-align: justify;">
-                            <h2>Producto prueba</h2>
-                            <h4>Código: 156797897z</h4>
+                        <div class="row mx-auto  mt-4 my-5">
+                            <div class="col-md-4 col-md-offset-0 text-center">
+                                <img class="img-fluid" src="{{ settings.IMG }}packshot.jpg"
+                                     alt="test"
+                                     title="test" id="bigPic"/>
+                            </div>
+                            <div class="col-md-8" >
+                                <h2>Producto prueba</h2>
+                                <h4>Código: 156797897z</h4>
 
-                            <p>
-                                Descripción prueba Descripción prueba Descripción prueba Descripción prueba Descripción prueba Descripción prueba Descripción prueba Descripción prueba
-                            </p>
-                            <br>
-                            <h3>$1,000.00</h3>
-                            <br>
-                            <button type="button" class="btn btn-outline-dark btn-lg">Agregar al carrito</button>
-                            <div style="clear: both"></div>
+                                <p>
+                                    Descripción prueba Descripción prueba Descripción prueba Descripción prueba
+                                    Descripción
+                                    prueba Descripción prueba Descripción prueba Descripción prueba
+                                </p>
+                                <br>
+                                <h3>$1,000.00</h3>
+                                <br>
+                                <button type="button" class="btn btn-outline-dark btn-lg add_cart">Agregar al carrito</button>
+                                <div style="clear: both"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
