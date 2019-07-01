@@ -16380,11 +16380,14 @@ input[type=submit][disabled] {
     height: 46px
 }
 
+/*
 .social {
     float: right;
     padding-top: 0px;
     margin-right: 30px;
 }
+
+
 
 .social a#twitter {
 
@@ -16447,7 +16450,7 @@ input[type=submit][disabled] {
     background-position: 0 bottom;
 
 }
-
+*/
 .social a#pinte {
 
     background: url("../img/social/pinterest.png") no-repeat scroll 0 top transparent;
@@ -16830,6 +16833,7 @@ input[type=submit][disabled] {
     background-position: center;
 }
 
+/*
 span.product-name {
     display: block;
     text-align: center;
@@ -16838,6 +16842,8 @@ span.product-name {
     height: 42px;
     overflow: hidden;
 }
+*/
+ */
 
 /*
 span.product-name a {

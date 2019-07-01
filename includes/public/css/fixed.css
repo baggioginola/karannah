@@ -211,7 +211,6 @@ span.product-name {
     text-align: center;
     line-height: 18px;
     margin-top: 5px;
-    height: 42px;
     overflow: hidden;
 }
 
@@ -222,6 +221,12 @@ span.product-name a:hover {
 .video {
     width: 100%;
     max-width: 480px;
+    height: auto;
+}
+
+.carousel-video {
+    width: 100%;
+    max-width: 285px;
     height: auto;
 }
 #breadcrumb {
@@ -291,6 +296,22 @@ span.product-name a:hover {
     color: #000;
 }
 
+.social {
+    padding-top: 0px;
+    margin-right: 0px;
+}
+
+.social a#face {
+    background: url("../img/social/facebook.png") no-repeat scroll 0 top transparent;
+    float: left;
+    height: 32px;
+    width: 32px;
+}
+
+.social a#face:hover {
+    background-position: 0 bottom;
+}
+
 @media only screen and (max-width: 600px) {
     .slide-box img {
         max-width: 50%;
@@ -329,7 +350,6 @@ span.product-name a:hover {
     }
 
 }
-
 
 
 @media only screen and (min-width: 600px) {
