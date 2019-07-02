@@ -15,7 +15,7 @@ CREATE TABLE `usuarios` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 INSERT INTO `usuarios` (`nombre`, `apellidos`, `e_mail`, `PASSWORD`, `active`, `nivel`) VALUES
-('Mario', 'Cuevas', 'mariocue@herbalife.com', 'e10adc3949ba59abbe56e057f20f883e', 1, 0);
+('Mario', 'Cuevas', 'mariocuevas88@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 1, 0);
 
 CREATE TABLE `categorias` (
   `id` int(11) NOT NULL auto_increment primary KEY,
