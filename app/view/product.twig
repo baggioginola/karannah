@@ -1,6 +1,6 @@
 {% extends "layout/master.twig" %}
 
-{% block title %}Producto{% endblock %}
+{% block title %}{{ result.nombre }}{% endblock %}
 
 {% block head %}
     {{ parent() }}
@@ -18,31 +18,30 @@
                                 <li><a href="{{ settings.DOMAIN }}">Inicio</a></li>
                                 <li>&gt;</li>
                                 <li>
-                                    <a href="{{ settings.DOMAIN }}categoria/1">Anillos</a>
+                                    <a href="{{ settings.DOMAIN }}categoria/{{ result.id_categoria }}">{{ result.categoria }}</a>
                                 </li>
                                 <li>&gt;</li>
-                                <li><span class="active-page">Producto Prueba</span></li>
+                                <li><span class="active-page">{{ result.nombre }}</span></li>
                             </ol>
                         </div>
                         <div class="row mx-auto  mt-4 my-5">
                             <div class="col-md-4 col-md-offset-0 text-center">
-                                <img class="img-fluid" src="{{ settings.IMG }}packshot.jpg"
-                                     alt="test"
-                                     title="test" id="bigPic"/>
+                                <img class="img-fluid" src="{{ result.url_image }}"
+                                     alt="{{ result.nombre }}"
+                                     title="{{ result.nombre }}" id="bigPic"/>
                             </div>
-                            <div class="col-md-8" >
-                                <h2>Producto prueba</h2>
-                                <h4>Código: 156797897z</h4>
+                            <div class="col-md-8">
+                                <h2>{{ result.nombre }}</h2>
+                                <h4>Código: {{ result.codigo_interno }}</h4>
 
                                 <p>
-                                    Descripción prueba Descripción prueba Descripción prueba Descripción prueba
-                                    Descripción
-                                    prueba Descripción prueba Descripción prueba Descripción prueba
+                                    {{ result.descripcion | raw }}
                                 </p>
                                 <br>
-                                <h3>$1,000.00</h3>
+                                <h3>${{ result.precio }}</h3>
                                 <br>
-                                <button type="button" class="btn btn-outline-dark btn-lg add_cart">Agregar al carrito</button>
+                                <button type="button" class="btn btn-outline-dark btn-lg add_cart">Agregar al carrito
+                                </button>
                                 <div style="clear: both"></div>
                             </div>
                         </div>

@@ -1,0 +1,84 @@
+{% extends "layout/master.twig" %}
+{% block title %}Videos{% endblock %}
+{% block head %}
+    {{ parent() }}
+    <link href="{{ settings.FILEINPUT }}css/fileinput.css" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+{% endblock %}
+
+{% block content %}
+    <h2 class="sub-header">Videos</h2>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <form class="form-horizontal" role="form" id="form_global" data-toggle="validator">
+                <div class="form-group has-feedback">
+                    <label for="id_titulo" class="col-lg-2 control-label">Título:</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="id_titulo" placeholder="Título" required
+                               autocomplete="off" name="titulo">
+                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                    </div>
+                </div>
+                <div class="form-group has-feedback">
+                    <label for="id_mostrar_inicio" class="col-lg-2 control-label">Mostrar en Inicio:</label>
+                    <div class="col-lg-10">
+                        <select name="mostrar_inicio" id="id_mostrar_inicio" aria-controls="datatable" class="form-control input-sm">
+                            <option value="1">Sí</option>
+                            <option value="0" selected="selected">No</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group has-feedback">
+                    <label for="id_contenido" class="col-lg-2 control-label">Contenido:</label>
+                    <div class="col-lg-10">
+                        <textarea id="id_contenido" autocomplete="off" style="resize:none;" rows="10" cols="50"></textarea>
+                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="id_video" class="col-lg-2 control-label">Videos</label>
+
+                    <div class="col-lg-10">
+                        <input id="id_video" name="videos[]" multiple type="file" class="file-loading"
+                               accept="image/*">
+                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                    </div>
+                </div>
+                <div class="form-group" style="text-align: right;">
+                    <div class="col-lg-offset-2 col-lg-10">
+                        <button type="submit" class="btn btn-primary" id="id_submit">Aceptar</button>
+                        <button type="button" class="btn btn-primary" id="reset_button">Limpiar</button>
+                    </div>
+                </div>
+                <input type="hidden" id="submit_type" value="videos/add"/>
+                <input type="hidden" id="upload_videos" value="1"/>
+                <input type="hidden" id="submit_id"/>
+            </form>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <table id="datatable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                <thead>
+                <tr>
+                    <th>Titulo</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+{% block footer %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ settings.JS }}custom/videos.js"></script>
+    <script type="text/javascript" src="{{ settings.JS }}validator.js"></script>
+    <script type="text/javascript" src="{{ settings.FILEINPUT }}js/fileinput.js"></script>
+    <script type="text/javascript" src="{{ settings.FILEINPUT }}js/plugins/sortable.min.js"></script>
+    <script type="text/javascript" src="{{ settings.FILEINPUT }}js/plugins/purify.min.js"></script>
+    <script type="text/javascript" src="{{ settings.FILEINPUT }}js/locales/es.js"></script>
+    <script type="text/javascript" src="{{ settings.FILEINPUT }}js/plugins/canvas-to-blob.js"></script>
+    <script type="text/javascript" src="{{ settings.JS }}tinymce/tinymce.min.js"></script>
+{% endblock %}

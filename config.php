@@ -33,11 +33,13 @@ define('PRODUCT_IMG', DOMAIN . 'panel-control/includes/public/imagenes_productos
 define('PROJECT_IMG', DOMAIN . 'panel-control/includes/public/imagenes_proyectos/');
 define('BANNER_IMG', DOMAIN . 'panel-control/includes/public/imagenes_banner/');
 define('CATEGORY_IMG', DOMAIN . 'panel-control/includes/public/imagenes_categorias/');
+define('VIDEO_LOCATION', DOMAIN . 'panel-control/includes/public/videos/');
 
 define('PRODUCT_IMG_ROOT', __ROOT__ . '/panel-control/includes/public/imagenes_productos/');
 define('PROJECT_IMG_ROOT', __ROOT__ . '/panel-control/includes/public/imagenes_proyectos/');
 define('BANNER_IMG_ROOT', __ROOT__ . '/panel-control/includes/public/imagenes_banner/');
 define('CATEGORY_IMG_ROOT', __ROOT__ . '/panel-control/includes/public/imagenes_categorias/');
+define('VIDEO_ROOT', __ROOT__ . '/panel-control/includes/public/videos/');
 
 define('BANNER_BIG_IMG_ROOT', __ROOT__ . '/panel-control/includes/public/imagenes_banner/banner_big/');
 define('BANNER_TOP_IMG_ROOT', __ROOT__ . '/panel-control/includes/public/imagenes_banner/banner_top/');
@@ -49,9 +51,9 @@ define('BANNER_BRANDS_IMG', DOMAIN . 'panel-control/includes/public/imagenes_ban
 
 #Database
 define('DBHOST', 'localhost');
-define('DBNAME', '');
-define('DBUSER', 'karannah_baggio');
-define('DBPASS', '@Met59fable');
+define('DBNAME', 'karannah');
+define('DBUSER', 'root');
+define('DBPASS', '');
 
 #Response codes
 define('STATUS_SUCCESS', 200);

@@ -154,6 +154,57 @@ $app->group('/articulos', function () use($app) {
     });
 });
 
+$app->group('/videos', function () use($app) {
+    $app->post('/getAll', function() use($app){
+        require_once __CONTROLLER__.'CVideosController.class.inc.php';
+        if(!$result = Videos::singleton()->getAll()){
+            echo 'Fail';
+        }
+        echo $result;
+
+    });
+
+    $app->post('/add', function() use($app){
+        require_once __CONTROLLER__.'CVideosController.class.inc.php';
+        if(!$result = Videos::singleton()->add()) {
+            echo 'Fail';
+        }
+        echo $result;
+    });
+
+    $app->post('/getById', function() use($app){
+        require_once __CONTROLLER__.'CVideosController.class.inc.php';
+        if(!$result = Videos::singleton()->getById()) {
+            echo 'Fail';
+        }
+        echo $result;
+    });
+
+    $app->post('/edit', function() use($app){
+        require_once __CONTROLLER__.'CVideosController.class.inc.php';
+        if(!$result = Videos::singleton()->edit()) {
+            echo 'Fail';
+        }
+        echo $result;
+    });
+
+    $app->post('/delete', function() use($app){
+        require_once __CONTROLLER__.'CVideosController.class.inc.php';
+        if(!$result = Videos::singleton()->delete()) {
+            echo 'Fail';
+        }
+        echo $result;
+    });
+
+    $app->post('/getLastId', function() use($app){
+        require_once __CONTROLLER__.'CVideosController.class.inc.php';
+        if(!$result = Videos::singleton()->getLastId()) {
+            echo 'Fail';
+        }
+        echo $result;
+    });
+});
+
 $app->group('/productos', function () use($app) {
     $app->post('/getAll', function() use($app){
         require_once __CONTROLLER__.'CProductsController.class.inc.php';
@@ -226,6 +277,34 @@ $app->group('/imagenes', function () use($app) {
     $app->post('/edit', function() use($app){
         require_once __CONTROLLER__ . 'CImagesController.class.inc.php';
         if(!$result = Images::singleton()->edit()) {
+            echo 'Fail';
+        }
+        echo $result;
+    });
+});
+
+
+$app->group('/videosUpload', function () use($app) {
+
+    $app->post('/add', function() use($app){
+        require_once __CONTROLLER__ . 'CVideosUploadController.class.inc.php';
+        if(!$result = VideosUpload::singleton()->add()) {
+            echo 'Fail';
+        }
+        echo $result;
+    });
+
+    $app->post('/rename', function() use($app){
+        require_once __CONTROLLER__ . 'CVideosUploadController.class.inc.php';
+        if(!$result = VideosUpload::singleton()->rename()) {
+            echo 'Fail';
+        }
+        echo $result;
+    });
+
+    $app->post('/edit', function() use($app){
+        require_once __CONTROLLER__ . 'CVideosUploadController.class.inc.php';
+        if(!$result = VideosUpload::singleton()->edit()) {
             echo 'Fail';
         }
         echo $result;

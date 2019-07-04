@@ -42,8 +42,8 @@
                     <label for="id_precio" class="col-lg-2 control-label">Precio:</label>
 
                     <div class="col-lg-10">
-                        <input type="text" class="form-control" id="id_precio" placeholder="Precio" required
-                               autocomplete="off" name="precio">
+                        <input type="number" class="form-control" id="id_precio" placeholder="Precio" required
+                               autocomplete="off" name="precio" min="0" step=".01">
                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                     </div>
                 </div>
@@ -81,6 +81,24 @@
                             <option value="1">Sí</option>
                             <option value="0" selected="selected">No</option>
                         </select>
+                    </div>
+                </div>
+                <div class="form-group has-feedback">
+                    <label for="id_mostrar_inicio" class="col-lg-2 control-label">Mostrar en Inicio:</label>
+                    <div class="col-lg-10">
+                        <select name="mostrar_inicio" id="id_mostrar_inicio" aria-controls="datatable" class="form-control input-sm">
+                            <option value="1">Sí</option>
+                            <option value="0" selected="selected">No</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group has-feedback">
+                    <label for="id_descuento" class="col-lg-2 control-label">Descuento (%):</label>
+                    <div class="col-lg-10">
+                        <input type="number" class="form-control" id="id_descuento" placeholder="Descuento" required
+                               autocomplete="off" name="descuento" min="0" max="99" value="0" step=".01">
+                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                     </div>
                 </div>
                 <div class="form-group">

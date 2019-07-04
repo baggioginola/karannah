@@ -50,6 +50,50 @@ function submit_response(form, data, url, type) {
     image.fileinput("enable");
 }
 
+function submit_responseVideo(form, data, url, type) {
+    $('#id_submit').addClass('disabled');
+    $('#submit_pw').val('');
+    $('#submit_type').val(url);
+    $('#submit_id').val('');
+
+    form.trigger("reset");
+    bootbox.alert(data.message);
+    $('#upload_videos').val('1');
+
+
+    var video = $('#id_video');
+
+    video.fileinput("destroy");
+
+    video.fileinput({
+        uploadUrl: "videosUpload/add",
+        allowedFileExtensions: ["mp4"],
+        maxFileCount: 1,
+        minFileCount: 1,
+        uploadAsync: false,
+        language: "es",
+        showUpload: false,
+        fileActionSettings: {showUpload: false, showZoom: false},
+        previewSettings: {image: {width: "auto", height: "100px"}},
+        //overwriteInitial: true,
+        purifyHtml: true,
+        autoReplace: true,
+        uploadExtraData: function (previewId, index) {
+            var info = {
+                "type": "videos",
+                "name": $('#submit_id').val(),
+                'num_videos': $('.file-initial-thumbs > div').length + $('.file-live-thumbs > div').length
+            };
+            return info;
+        }
+    }).on('filebatchuploadsuccess', function (event, data) {
+        var out = '';
+    }).on('fileloaded', function (event, file, previewId, index, reader) {
+        $('#upload_videos').val('1');
+    });
+    video.fileinput("enable");
+}
+
 
 function submit_response_general(form, data, url) {
     $('#id_submit').addClass('disabled');
@@ -152,7 +196,7 @@ function getImage(root_images, name, i) {
         async: false
     });
 
-    if (exists.status != 200) {
+    if (exists.status !== 200) {
         extension = '.png';
         var exists_png = $.ajax({
             url: url + extension,
@@ -161,7 +205,7 @@ function getImage(root_images, name, i) {
             dataType: 'json',
             async: false
         });
-        if (exists_png.status != 200) {
+        if (exists_png.status !== 200) {
             return {
                 status: 404
             };
@@ -173,6 +217,39 @@ function getImage(root_images, name, i) {
             name: return_name + extension
         };
     }
+    return {
+        status: 200,
+        url: url + extension,
+        extension: extension,
+        name: return_name + extension
+    };
+
+}
+
+
+function getVideo(root_videos, name, i) {
+    var extension = '.mp4';
+    var url = '';
+    var return_name = '';
+
+    if (i === 1) {
+        url = root_videos + name;
+        return_name = name;
+    }
+    else {
+        url = root_videos + name + '_' + i;
+        return_name = name + '_' + i;
+    }
+
+
+    var exists = $.ajax({
+        url: url + extension,
+        type: "POST",
+        cache: false,
+        dataType: 'json',
+        async: false
+    });
+
     return {
         status: 200,
         url: url + extension,

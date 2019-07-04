@@ -8,7 +8,7 @@ RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^ index.php [QSA,L]
 
-php_value upload_max_filesize 32M
-php_value post_max_size 32M
+#php_value upload_max_filesize 32M
+#php_value post_max_size 32M
 #RewriteCond %{HTTP_HOST} !^www\.
 #RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]

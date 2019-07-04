@@ -34,14 +34,16 @@ CREATE TABLE `productos` (
   `nombre` varchar(500),
   `descripcion` text,
   `active` boolean DEFAULT TRUE,
-  `precio` decimal(10,2) DEFAULT NULL,
-  `num_imagenes` int(5) DEFAULT NULL,
+  `precio` decimal(10,2) DEFAULT 0,
+  `descuento` decimal(10,2) DEFAULT 0,
+  `num_imagenes` int(5) DEFAULT 0,
   `fecha_alta` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   `fecha_modifica` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `iva` decimal(10,2) DEFAULT NULL,
   `codigo_interno` varchar(250),
   `novedades` boolean,
   `promociones` boolean,
+  `mostrar_inicio` boolean DEFAULT FALSE,
   FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -55,6 +57,17 @@ CREATE TABLE `articulos` (
 `fecha_alta` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   `fecha_modifica` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY(`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+CREATE TABLE `videos` (
+`id` int(11) NOT NULL AUTO_INCREMENT,
+`titulo` varchar(255) NOT NULL,
+`contenido` text NOT NULL,
+`active` boolean DEFAULT TRUE,
+`mostrar_inicio` boolean DEFAULT FALSE,
+`fecha_alta` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+`fecha_modifica` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+PRIMARY KEY(`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 CREATE TABLE `logs` (

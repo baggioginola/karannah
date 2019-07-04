@@ -3,7 +3,7 @@
  */
 $(document).ready(function () {
     tinymce.init({
-        selector: "textarea#id_descripcion",
+        selector: "textarea#id_contenido",
         menubar: "edit",
 
         theme: "modern",
@@ -16,9 +16,9 @@ $(document).ready(function () {
 
     });
 
-    $("#id_imagen").fileinput({
-        uploadUrl: "imagenes/add",
-        allowedFileExtensions: ["jpg", "png", "jpeg"],
+    $("#id_video").fileinput({
+        uploadUrl: "videosUpload/add",
+        allowedFileExtensions: ["mp4"],
         maxFileCount: 1,
         minFileCount: 1,
         uploadAsync: false,
@@ -31,31 +31,31 @@ $(document).ready(function () {
         validateInitialCount: true,
         uploadExtraData: function (previewId, index) {
             var info = {
-                "type": "categorias",
+                "type": "videos",
                 "name": $('#submit_id').val(),
-                'num_imagenes': $('.file-initial-thumbs > div').length + $('.file-live-thumbs > div').length
+                'num_videos': $('.file-initial-thumbs > div').length + $('.file-live-thumbs > div').length
             };
             return info;
         }
     }).on('filebatchuploadsuccess', function (event, data) {
-        bootbox.alert('Las imágenes se han subido correctamente');
+        bootbox.alert('Los videos se han subido correctamente');
     }).on('fileloaded', function (event, file, previewId, index, reader) {
-        $('#upload_images').val('1');
+        $('#upload_videos').val('1');
     });
 
     $('#reset_button').click(function () {
         $('#form_global').trigger("reset");
-        $('#submit_type').val('categorias/add');
+        $('#submit_type').val('videos/add');
         $('#submit_id').val('');
 
         return false;
     });
 
-    var url = 'categorias/getAll';
-    var columns = [{data: 'nombre'}];
+    var url = 'videos/getAll';
+    var columns = [{data: 'titulo'}];
     var table = masterDatatable(url, columns);
 
-    var url_last_id = 'categorias/getLastId';
+    var url_last_id = 'videos/getLastId';
 
     $.ajax({
         url: url_last_id,
@@ -74,15 +74,15 @@ $(document).ready(function () {
         var id = table.row($(this).parents('tr')).data().id;
 
         var data = {id: id};
-        var url = 'categorias/getById';
+        var url = 'videos/getById';
 
-        $('#submit_type').val('categorias/edit');
+        $('#submit_type').val('videos/edit');
 
         $.post(url, data, function (response, status) {
-            if (status == 'success') {
+            if (status === 'success') {
                 $.each(response, function (key, val) {
-                    if (key == 'descripcion') {
-                        tinyMCE.get('id_descripcion').setContent(val);
+                    if (key === 'contenido') {
+                        tinyMCE.get('id_contenido').setContent(val);
                     }
                     $("input[name=" + key + "]").val(val);
                     $("textarea[name=" + key + "]").val(val);
@@ -94,9 +94,10 @@ $(document).ready(function () {
                 var j = 0;
                 var i = 1;
 
-                var dataImage = getImage(IMAGES_CATEGORIES, response.id, i);
+                var dataImage = getVideo(VIDEOS, response.id, i);
                 if (dataImage.status === 200) {
                     images[j] = '<img src="' + dataImage.url + '" class="file-preview-image" alt="Desert" title="Desert" style="width:auto; height:100px;">';
+                    images[j] = '<video class="kv-preview-data"  controls="" style="width:213px; height:160px;"><source src="' + dataImage.url + '" type="video/mp4" > </video>';
 
                     var initialPreviewConfigItem = {};
                     initialPreviewConfigItem['caption'] = dataImage.name;
@@ -105,9 +106,9 @@ $(document).ready(function () {
                     j++;
                 }
 
-                $('#id_imagen').fileinput('refresh', {
-                    uploadUrl: "imagenes/edit",
-                    allowedFileExtensions: ["jpg", "png", "jpeg"],
+                $('#id_video').fileinput('refresh', {
+                    uploadUrl: "videosUpload/add",
+                    allowedFileExtensions: ["mp4"],
                     initialPreview: images,
                     initialPreviewFileType: 'image',
                     initialPreviewShowDelete: false,
@@ -118,15 +119,15 @@ $(document).ready(function () {
                     showUploadedThumbs: false,
                     uploadExtraData: function (previewId, index) {
                         var info = {
-                            "type": "categorias",
-                            "name": $("#submit_id").val(),
-                            'num_imagenes': $('.file-initial-thumbs > div').length + $('.file-live-thumbs > div').length
+                            "type": "videos",
+                            "name": $('#submit_id').val(),
+                            'num_videos': $('.file-initial-thumbs > div').length + $('.file-live-thumbs > div').length
                         };
                         return info;
                     }
                 });
 
-                $('#upload_images').val('0');
+                $('#upload_videos').val('0');
             }
             $('#submit_id').val(response.id);
         }, 'json');
@@ -136,11 +137,11 @@ $(document).ready(function () {
     $('#datatable tbody').on('click', '#btn_delete', function () {
         var id = table.row($(this).parents('tr')).data().id;
         bootbox.confirm("Eliminar elemento?", function (result) {
-            if (result == true) {
+            if (result === true) {
                 var data = {id: id, active: 0};
-                var url = 'categorias/delete';
+                var url = 'videos/delete';
                 $.post(url, data, function (response, status) {
-                    if (status == 'success') {
+                    if (status === 'success') {
                         bootbox.alert(response.message);
                         table.ajax.reload();
                     }
@@ -158,7 +159,7 @@ $(document).ready(function () {
 
         var type = $('#submit_type').val();
 
-        if ($('#id_imagen').fileinput('upload') == null && $('#upload_images').val() == 1) {
+        if ($('#id_video').fileinput('upload') == null && $('#upload_videos').val() == 1) {
             return false;
         }
 
@@ -169,11 +170,11 @@ $(document).ready(function () {
 
         var data = $(this).serialize();
 
-        if (type == 'categorias/edit') {
+        if (type === 'videos/edit') {
             var id = $('#submit_id').val();
             data = data + '&' + $.param({'id': id});
         }
-        data = data + '&' + $.param({'descripcion': tinyMCE.get('id_descripcion').getContent()});
+        data = data + '&' + $.param({'contenido': tinyMCE.get('id_contenido').getContent()});
         $.ajax({
             url: type,
             type: "POST",
@@ -183,7 +184,7 @@ $(document).ready(function () {
             async: false,
             success: function (data) {
                 table.ajax.reload();
-                submit_response(form, data, 'categorias/add', 'categorias');
+                submit_responseVideo(form, data, 'videos/add', 'videos');
             }
         });
         return false;

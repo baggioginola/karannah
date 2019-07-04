@@ -140,27 +140,16 @@ class CDir extends BaseController
         }
 
         switch($this->type){
-            case 'proyectos':
-                $this->dir = PROJECT_IMG;
-                break;
             case 'productos':
                 $this->dir = PRODUCT_IMG;
                 break;
             case 'categorias':
                 $this->dir = CATEGORY_IMG;
                 break;
-            case 'banner':
-                $this->dir = BANNER_IMG;
+            case 'videos':
+                $this->dir = VIDEOS;
                 break;
-            case 'banner_big':
-                $this->dir = BANNER_BIG_IMG;
-                break;
-            case 'banner_top':
-                $this->dir = BANNER_TOP_IMG;
-                break;
-            case 'banner_brands':
-                $this->dir = BANNER_BRANDS_IMG;
-                break;
+
             default: return false;
             break;
 
@@ -176,17 +165,6 @@ class CDir extends BaseController
         return $this->dir;
     }
 
-    /**
-     * @return bool
-     */
-    private function setName()
-    {
-        if (!isset($_REQUEST['name']) || empty($_REQUEST['name'])) {
-            return false;
-        }
-        $this->name = $_REQUEST['name'];
-        return true;
-    }
 
     /**
      * @return bool
@@ -199,17 +177,6 @@ class CDir extends BaseController
 
         $this->type = trim($_REQUEST['type']);
         Debugger::add('setType', $this->type, false, __LINE__, __METHOD__);
-        return true;
-    }
-
-    /**
-     * @return bool
-     */
-    private function _setCategory()
-    {
-        if (isset($_REQUEST['categoria'])) {
-            $this->category = Categories::singleton()->getKeyById($_REQUEST['categoria']);
-        }
         return true;
     }
 

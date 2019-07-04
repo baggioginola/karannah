@@ -38,6 +38,11 @@ $app->get('/articulos', function ($request, $response, $args) {
     return $this->view->render($response, 'articulos.twig', array('settings' => $settings));
 })->add(new CAuth());
 
+$app->get('/videos', function ($request, $response, $args) {
+    global $settings;
+    return $this->view->render($response, 'videos.twig', array('settings' => $settings));
+})->add(new CAuth());
+
 $app->get('/login', function ($request, $response, $args) {
     global $settings;
     return $this->view->render($response, 'login.twig', array('settings' => $settings));

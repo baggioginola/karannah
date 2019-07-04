@@ -8,7 +8,7 @@
 
         <link rel="stylesheet" type="text/css" href="{{ settings.BOOTSTRAP }}css/bootstrap.css" media="all">
         <link rel="stylesheet" type="text/css" href="{{ settings.BOOTSTRAP }}css/bootstrap-grid.css" media="all">
-        <link rel="stylesheet" type="text/css" href="{{ settings.CSS }}style.css" media="all">
+        <!--<link rel="stylesheet" type="text/css" href="{{ settings.CSS }}style.css" media="all">!-->
         <link rel="stylesheet" type="text/css" href="{{ settings.CSS }}fixed.css" media="all">
         <link rel="icon" href="{{ settings.IMG }}logo.png">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -26,7 +26,6 @@
                 <a class="navbar-brand" href="{{ settings.DOMAIN }}" itemprop="url">
                     <img itemprop="logo" alt="Karannah" title="Karannah"
                          src="{{ settings.IMG }}logo.png" width=""/>
-                    <span>Karannah</span>
                 </a>
             </div>
             <div class="col-lg-5 no-gutters">
@@ -64,7 +63,13 @@
                     <a href="{{ settings.DOMAIN }}promociones" class="nav-link"><span
                                 class="txt ext-uc">PROMOCIONES</span></a>
                 </li>
-
+                {% for item  in categories_all %}
+                    <li class="nav-item">
+                        <a href="{{ settings.DOMAIN }}categoria/{{ item.id }}" class="nav-link"><span
+                                    class="txt ext-uc">{{ item.nombre }}</span></a>
+                    </li>
+                {% endfor %}
+                <!--
                 <li class="nav-item">
                     <a href="{{ settings.DOMAIN }}categoria/1" class="nav-link"><span
                                 class="txt ext-uc">PULSERAS</span></a>
@@ -85,6 +90,7 @@
                     <a href="{{ settings.DOMAIN }}categoria/5" class="nav-link"><span
                                 class="txt ext-uc">JUEGOS</span></a>
                 </li>
+                !-->
                 <li class="nav-item">
                     <a href="{{ settings.DOMAIN }}videos" class="nav-link"><span class="txt ext-uc">VIDEOS</span></a>
                 </li>

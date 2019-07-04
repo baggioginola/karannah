@@ -28,8 +28,10 @@ class Products extends BaseController
         'codigo_interno' => TYPE_ALPHA,
         'num_imagenes' => TYPE_INT,
         'precio' => TYPE_FLOAT,
+        'descuento' => TYPE_FLOAT,
         'novedades' => TYPE_BOOLEAN,
-        'promociones' => TYPE_BOOLEAN
+        'promociones' => TYPE_BOOLEAN,
+        'mostrar_inicio' => TYPE_BOOLEAN
     );
 
     /**

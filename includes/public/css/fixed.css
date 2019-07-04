@@ -1,3 +1,17 @@
+body, html {
+    font-family: proxima-nova, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: .062em;
+    background-color: #f5f5f5;
+}
+
+.wide-content, .wide-content-warning {
+    padding-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
 #header {
     padding: 0px;
     background-color: #fff;
@@ -15,6 +29,19 @@
     box-shadow: 1px 3px 3px 4px rgba(50, 50, 50, .2);
 }
 
+.footer .contentFooter {
+    background-color: #eae8ea;
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.navbar-nav li a {
+    text-transform: uppercase;
+}
+.btn {
+    border-radius: 0;
+}
 .navbar-header {
     margin: 0 auto;
 }

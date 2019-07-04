@@ -6,9 +6,9 @@
  * Time: 20:20
  */
 require_once __CONTROLLER__ . 'CBaseController.class.inc.php';
-require_once __MODEL__ . 'CCategoriesModel.class.inc.php';
+require_once __MODEL__ . 'CVideosModel.class.inc.php';
 
-class Categories extends BaseController
+class Videos extends BaseController
 {
     private static $object = null;
 
@@ -18,17 +18,16 @@ class Categories extends BaseController
 
     private $validParameters = array(
         'id' => TYPE_INT,
-        'nombre' => TYPE_ALPHA,
-        'active' => TYPE_BOOLEAN,
         'titulo' => TYPE_ALPHA,
-        'subtitulo' => TYPE_ALPHA,
-        'descripcion' => TYPE_ALPHA,
+        'contenido' => TYPE_ALPHA,
+        'active' => TYPE_BOOLEAN,
+        'mostrar_inicio' => TYPE_BOOLEAN,
         'fecha_alta' => TYPE_DATE,
-        'fecha_modifica' => TYPE_DATE
+        'fecha_modifica' => TYPE_DATE,
     );
 
     /**
-     * @return null|Categories
+     * @return null|Videos
      */
     public static function singleton()
     {
@@ -43,7 +42,7 @@ class Categories extends BaseController
      */
     public function getAll()
     {
-        if (!$result = CategoriesModel::singleton()->getAll()) {
+        if (!$result = VideosModel::singleton()->getAll()) {
             return json_encode($this->getResponse(STATUS_FAILURE_INTERNAL, MESSAGE_ERROR));
         }
         return json_encode(UTF8Converter($result));
@@ -54,7 +53,7 @@ class Categories extends BaseController
      */
     public function getLastId()
     {
-        if (!$result = CategoriesModel::singleton()->getLastId()) {
+        if (!$result = VideosModel::singleton()->getLastId()) {
             return json_encode($this->getResponse(STATUS_FAILURE_INTERNAL, MESSAGE_ERROR));
         }
         return json_encode($result);
@@ -69,7 +68,7 @@ class Categories extends BaseController
             return json_encode($this->getResponse(STATUS_FAILURE_INTERNAL, MESSAGE_ERROR));
         }
 
-        $result = CategoriesModel::singleton()->getById($this->parameters['id']);
+        $result = VideosModel::singleton()->getById($this->parameters['id']);
 
         return json_encode(UTF8Converter($result));
     }
@@ -83,12 +82,12 @@ class Categories extends BaseController
             return json_encode($this->getResponse(STATUS_FAILURE_INTERNAL, MESSAGE_ERROR));
         }
 
-        if (!CategoriesModel::singleton()->add($this->parameters)) {
-            echo 'add fail';
+        $result = array();
+        if (!$result['id'] = VideosModel::singleton()->add($this->parameters)) {
             return json_encode($this->getResponse(STATUS_FAILURE_INTERNAL, MESSAGE_ERROR));
         }
 
-        return json_encode($this->getResponse());
+        return json_encode($this->getResponse(STATUS_SUCCESS, MESSAGE_SUCCESS, $result));
     }
 
     /**
@@ -104,8 +103,7 @@ class Categories extends BaseController
 
         unset($this->parameters['id']);
 
-        $this->parameters['fecha_modifica'] = date('Y-m-d H:i:s');
-        if (!CategoriesModel::singleton()->edit($this->parameters, $id)) {
+        if (!VideosModel::singleton()->edit($this->parameters, $id)) {
             return json_encode($this->getResponse(STATUS_FAILURE_INTERNAL, MESSAGE_ERROR));
         }
 
@@ -125,7 +123,7 @@ class Categories extends BaseController
 
         unset($this->parameters['id']);
 
-        if (!CategoriesModel::singleton()->edit($this->parameters, $id)) {
+        if (!VideosModel::singleton()->edit($this->parameters, $id)) {
             return json_encode($this->getResponse(STATUS_FAILURE_INTERNAL, MESSAGE_ERROR));
         }
 
@@ -138,7 +136,7 @@ class Categories extends BaseController
             $this->parameters[$key] = $value;
         }
 
-        $result = CategoriesModel::singleton()->add($this->parameters);
+        $result = VideosModel::singleton()->add($this->parameters);
 
         return $result;
     }
@@ -157,9 +155,13 @@ class Categories extends BaseController
         }
 
         foreach ($_POST as $key => $value) {
-            $this->parameters[$key] = $value;
+            if($key == 'fecha'){
+                $this->parameters[$key] = dateInput($value);
+            }
+            else {
+                $this->parameters[$key] = $value;
+            }
         }
-
         return true;
     }
 }
